@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'books/index'
+  get 'books/new'
+  get 'books/edit'
+  get 'books/show'
+  root :to => 'pages#home'
+  resources :books, :only => [:index, :new, :create, :show]
+  resources :authors
+  resources :users, :only => [:new, :create]
+
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
 end

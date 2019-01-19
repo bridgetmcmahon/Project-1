@@ -12,5 +12,10 @@
 #
 
 class User < ApplicationRecord
+  # Validations
+  has_secure_password
+  validates :email, :presence => true, :uniqueness => true
+
+  # Associations
   has_many :shelves
 end
