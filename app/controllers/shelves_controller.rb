@@ -8,7 +8,7 @@ class ShelvesController < ApplicationController
   end
 
   def create
-    shelf = Shelf.create shelf_params
+    shelf = Shelf.create(:name => params[:name], :user_id => @current_user.id)
     redirect_to user_path(@current_user)
   end
 
@@ -17,9 +17,13 @@ class ShelvesController < ApplicationController
   end
 
   def edit
+    @shelf = Shelf.find params[:id]
   end
 
   def update
+    shelf = Shelf.find params[:id]
+    shelf.update shelf_params
+    redirect_to shelf
   end
 
   def destroy
