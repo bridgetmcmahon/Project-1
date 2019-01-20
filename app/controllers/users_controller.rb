@@ -9,6 +9,9 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       session[:user_id] = @user.id
+      @user.shelves.create(:name => "Read")
+      @user.shelves.create(:name => "Currently Reading")
+      @user.shelves.create(:name => "Want to Read")
       redirect_to root_path
     else
       render :new

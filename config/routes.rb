@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :authors
   resources :users, :only => [:new, :create, :show, :edit, :update]
   resources :shelves
+  resources :authors, :only => [:index, :show]
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

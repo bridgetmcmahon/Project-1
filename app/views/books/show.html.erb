@@ -4,7 +4,7 @@
 <ul>
   <li>Author(s):
   <% @book.authors.each do |author| %>
-    <%= author.name %>
+    <%= link_to author.name, author_path(author.id) %>
   <% end %>
   </li>
   <% unless @book.synopsis.nil? %>
@@ -13,6 +13,3 @@
 </ul>
 
 <!-- need to add link to add to shelf -->
-<%= link_to "Add to Currently Reading", edit_shelf_path, :id => @current_user.shelves, :name => "Currently Reading", :method => 'post' %>
-<%= link_to "Add to Want to Read", edit_shelf_path, :id => @current_user.shelves, :name => "Want to Read", :method => 'post' %>
-<%= link_to "Add to Read", edit_shelf_path, :id => @current_user.shelves, :name => "Read", :method => 'post' %>
