@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  get 'books/index'
-  get 'books/new'
-  get 'books/edit'
-  get 'books/show'
   root :to => 'pages#home'
   resources :books, :only => [:index, :new, :create, :show]
   resources :authors
-  resources :users, :only => [:new, :create]
+  resources :users, :only => [:new, :create, :show, :edit, :update]
+  resources :shelves
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

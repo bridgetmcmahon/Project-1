@@ -12,8 +12,10 @@
   <body>
     <header>
       <nav>
-        <%= link_to 'Books', books_index_path %>
+        <%= link_to 'Home', root_path %>
+        <%= link_to 'All Books', books_path %>
         <% if @current_user.present? %>
+          <%= link_to "My Books", user_path(@current_user) %>
           <%= link_to "Sign Out #{ @current_user.name }", login_path, :method => 'delete' %>
         <% else %>
           <%= link_to 'Sign Up', new_user_path %>
@@ -21,6 +23,11 @@
         <% end %>
       </nav>
     </header>
-    <%= yield %>
+
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

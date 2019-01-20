@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Staatliches');
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #DADDD8;
+  margin: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: 'Staatliches', cursive;
+}
+
+header {
+  background-color: #1C1C1C;
+}
+
+nav {
+  max-width: 960px;
+  margin: 0 auto;
+  line-height: 50px;
+}
+
+nav a {
+  color: #DADDD8;
+  text-decoration: none;
+}
+
+.books {
+  display: inline-block;
+  text-align: center;
+  margin: 10px 5px;
+  max-height: 200px;
+  vertical-align: top;
+}
+
+.books img {
+  max-height: 150px;
+  width: auto;
+}
+
+.books p {
+  max-width: 200px;
+}
+
+.feature {
+  max-height: 400px;
+}

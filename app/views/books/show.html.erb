@@ -1,11 +1,18 @@
 <h1><%= @book.title %></h1>
 
-<% image_tag @book.cover, :class => 'feature' %>
+<%= image_tag @book.cover, :class => 'feature' %>
 <ul>
   <li>Author(s):
-  <%= @book.authors.each do |author| %>
-    <%= author %>
+  <% @book.authors.each do |author| %>
+    <%= author.name %>
   <% end %>
   </li>
+  <% unless @book.synopsis.nil? %>
   <li>Synopsis: <%= @book.synopsis %></li>
+  <% end %>
 </ul>
+
+<!-- need to add link to add to shelf -->
+<%= link_to "Add to Currently Reading", edit_shelf_path, :id => @current_user.shelves, :name => "Currently Reading", :method => 'post' %>
+<%= link_to "Add to Want to Read", edit_shelf_path, :id => @current_user.shelves, :name => "Want to Read", :method => 'post' %>
+<%= link_to "Add to Read", edit_shelf_path, :id => @current_user.shelves, :name => "Read", :method => 'post' %>
