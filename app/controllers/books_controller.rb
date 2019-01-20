@@ -14,8 +14,13 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find params[:id]
-    
     # raise 'hell'
+  end
+
+  def add_book_to_shelf
+    book = Book.find params[:id]
+    shelf = Shelf.find params[:shelf_id]
+    shelf.books << book
   end
 
   private

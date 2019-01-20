@@ -22,6 +22,8 @@ class ShelvesController < ApplicationController
 
   def update
     shelf = Shelf.find params[:id]
+    raise 'hell'
+
     shelf.update shelf_params
     redirect_to shelf
   end

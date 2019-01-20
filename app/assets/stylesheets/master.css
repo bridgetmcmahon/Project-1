@@ -28,6 +28,7 @@ nav {
 nav a {
   color: #DADDD8;
   text-decoration: none;
+  margin-right: 12px;
 }
 
 .books {
