@@ -41,23 +41,17 @@ class BooksController < ApplicationController
 
     book = Book.find_or_create_by(title: title) do |book|
       book.title = params[:title].capitalize
-      info["items"][0]["volumeInfo"]["authors"].each do |author|
-        book.authors = author
+      book.cover = info["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
+      info["items"][0]["volumeInfo"]["authors"].each do |a|
+        author = Author.find_or_create_by(name: a)
+        book.authors << author
       end
       book.synopsis = info["items"][0]["volumeInfo"]["description"]
     end
 
-    # author = Author.find_or_create_by ...
+    # raise "hell"
 
-    # @title = params[:title].capitalize
-    # url = "https://www.googleapis.com/books/v1/volumes?q=title:#{ @title }"
-    # info = HTTParty.get url
-    # @book_cover = info["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
-    # # @img = "<img src='#{book_cover}'alt='#{@title} cover'"
-    # @author = info["items"][0]["volumeInfo"]["authors"].join(', ')
-    # @description = info["items"][0]["volumeInfo"]["description"]
     redirect_to book_path(book)
-
   end
 
   private

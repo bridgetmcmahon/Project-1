@@ -4,7 +4,7 @@
   <div class="shelf">
     <h3><%= link_to shelf.name, shelf_path(shelf) %></h3>
     <% shelf.books.each do |book| %>
-      <%= link_to image_tag(book.cover), book_path(book) %>
+      <%= link_to image_tag(book.cover, :class => 'img-thumbnail'), book_path(book) %>
     <% end %>
   </div>
 <% end %>
