@@ -55,3 +55,15 @@ nav a {
 .shelf img {
   max-height: 150px;
 }
+
+.controls {
+  margin-top: 15px;
+}
+
+.controls a {
+  background-color: #1C1C1C;
+  color: #DADDD8;
+  padding: 3px;
+  border-radius: 3px;
+  text-decoration: none;
+}

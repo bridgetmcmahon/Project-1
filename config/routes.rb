@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:new, :create, :show, :edit, :update]
   resources :shelves
   post '/books/:id/shelf' => 'books#add_book_to_shelf', :as => :book_to_shelf
+  delete '/books/:id/shelf' => 'books#delete_book_from_shelf'
   resources :authors, :only => [:index, :show]
 
   get '/login' => 'session#new'

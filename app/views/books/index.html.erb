@@ -1,5 +1,7 @@
 <h1>All Books</h1>
 
+<!-- display all books -->
+
 <% @books.each do |book| %>
   <div class="books">
     <a href="<%= book_path(book) %>">

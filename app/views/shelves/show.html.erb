@@ -2,9 +2,14 @@
 
 <% unless @shelf.books.nil? %>
   <% @shelf.books.each do |book| %>
-    <%= image_tag book.cover %>
+    <%= link_to image_tag(book.cover, :class => "books"), book_path(book) %>
+    <%= button_to "Remove from Shelf",
+      book_to_shelf_path(book.id, :shelf_id => @shelf.id),
+      :method => 'delete' %>
   <% end %>
 <% end %>
 
-<%= link_to "Rename Shelf", edit_shelf_path(@shelf) %>
-<%= link_to "Delete Shelf", shelf_path(@shelf), :method => 'delete' %>
+<div class="controls">
+  <%= link_to "Rename Shelf", edit_shelf_path(@shelf) %>
+  <%= link_to "Delete Shelf", shelf_path(@shelf), :method => 'delete' %>
+</div>

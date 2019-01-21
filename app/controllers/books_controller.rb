@@ -23,6 +23,13 @@ class BooksController < ApplicationController
     shelf.books << book
   end
 
+  def delete_book_from_shelf
+    book = Book.find params[:id]
+    shelf = Shelf.find params[:shelf_id]
+    shelf.books.destroy(book)
+    redirect_to shelf
+  end
+
   private
   def book_params
     params.require(:book).permit(:title, :cover, :synopsis)

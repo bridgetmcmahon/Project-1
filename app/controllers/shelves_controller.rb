@@ -9,7 +9,7 @@ class ShelvesController < ApplicationController
 
   def create
     shelf = Shelf.create(:name => params[:name], :user_id => @current_user.id)
-    redirect_to user_path(@current_user)
+    redirect_to shelves_path
   end
 
   def show

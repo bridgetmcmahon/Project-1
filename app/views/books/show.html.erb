@@ -1,5 +1,7 @@
 <h1><%= @book.title %></h1>
 
+<!-- display book info -->
+
 <%= image_tag @book.cover, :class => 'feature' %>
 <ul>
   <li>Author(s):
@@ -12,7 +14,8 @@
   <% end %>
 </ul>
 
-<!-- need to add link to add to shelf -->
+<!-- link to add to shelf -->
+
 <p>Add to Shelf:</p>
 <%= form_tag book_to_shelf_path(@book) do %>
   <%= select_tag :shelf_id,
