@@ -1,0 +1,14 @@
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :cover %>
+  <%= f.text_field :cover %>
+
+  <%= f.label :synopsis %>
+  <%= f.text_area :synopsis %>
+
+  <%= f.submit "Add Book" %>
+<% end %>
+
+<%= form_for @book.authors %>

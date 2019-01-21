@@ -6,6 +6,7 @@
     <% shelf.books.each do |book| %>
       <%= link_to image_tag(book.cover, :class => 'img-thumbnail'), book_path(book) %>
     <% end %>
+    <hr>
   </div>
 <% end %>
 

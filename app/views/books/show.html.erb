@@ -9,6 +9,12 @@
     <%= link_to author.name, author_path(author.id) %>
   <% end %>
   </li>
+  <li>Genres:</li>
+    <ul>
+      <% @book.genres.each do |genre| %>
+        <li><%= genre.name %></li>
+      <% end %>
+    </ul>
   <% unless @book.synopsis.nil? %>
   <li>Synopsis: <%= @book.synopsis %></li>
   <% end %>

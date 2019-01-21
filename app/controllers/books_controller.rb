@@ -18,6 +18,14 @@ class BooksController < ApplicationController
     # raise 'hell'
   end
 
+  def edit
+
+  end
+
+  def update
+
+  end
+
   def add_book_to_shelf
     book = Book.find params[:id]
     shelf = Shelf.find params[:shelf_id]
@@ -35,12 +43,14 @@ class BooksController < ApplicationController
   end
 
   def search_result
-    title = params[:title].capitalize
+    title = params[:title].split.map(&:capitalize).join(' ')
     url = "https://www.googleapis.com/books/v1/volumes?q=title:#{ title }"
     info = HTTParty.get url
 
+    # raise "hell"
+    # add check for book search
     book = Book.find_or_create_by(title: title) do |book|
-      book.title = params[:title].capitalize
+      book.title = info["items"][0]["volumeInfo"]["title"]
       book.cover = info["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
       info["items"][0]["volumeInfo"]["authors"].each do |a|
         author = Author.find_or_create_by(name: a)
@@ -49,9 +59,11 @@ class BooksController < ApplicationController
       book.synopsis = info["items"][0]["volumeInfo"]["description"]
     end
 
-    # raise "hell"
-
     redirect_to book_path(book)
+  end
+
+  def destroy
+
   end
 
   private

@@ -68,3 +68,31 @@ nav a {
   border-radius: 3px;
   text-decoration: none;
 } */
+
+@import url('https://fonts.googleapis.com/css?family=Lato|Staatliches');
+
+h1 {
+  margin: 15px 0;
+  text-transform: uppercase;
+  font-family: 'Staatliches', cursive;
+}
+
+.books {
+  display: inline-block;
+  text-align: center;
+  margin: 10px 5px;
+  max-height: 200px;
+  vertical-align: top;
+}
+
+.books p {
+  max-width: 200px;
+}
+
+.books-thumbnail {
+  max-height: 150px;
+}
+
+.shelf img {
+  max-height: 150px;
+}

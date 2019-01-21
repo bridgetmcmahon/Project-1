@@ -1,12 +1,17 @@
 <h1>All Books</h1>
 
 <!-- display all books -->
+<div class="row">
+  <% @books.each do |book| %>
+    <div class="col-md-2 books">
+      <a href="<%= book_path(book) %>">
+      <%= image_tag(book.cover, :class => "books-thumbnail") %>
+      <p><%= book.title %></p>
+      </a>
+    </div>
+  <% end %>
+</div>
 
-<% @books.each do |book| %>
-  <div class="books">
-    <a href="<%= book_path(book) %>">
-    <%= image_tag book.cover %>
-    <p><%= book.title %></p>
-    </a>
-  </div>
-<% end %>
+<div>
+  <p>Can't find what you're looking for? Search for a book <%= link_to "here", books_search_path %></p>
+</div>
