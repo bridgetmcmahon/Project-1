@@ -22,8 +22,6 @@ class ShelvesController < ApplicationController
 
   def update
     shelf = Shelf.find params[:id]
-    raise 'hell'
-
     shelf.update shelf_params
     redirect_to shelf
   end
@@ -31,7 +29,7 @@ class ShelvesController < ApplicationController
   def destroy
     shelf = Shelf.find params[:id]
     shelf.destroy
-    redirect_to shelf_path
+    redirect_to shelves_path
   end
 
   private

@@ -1,2 +1,12 @@
-<h1>Shelves#index</h1>
-<p>Find me in app/views/shelves/index.html.erb</p>
+<h1>My Books</h1>
+
+<% @current_user.shelves.each do |shelf| %>
+  <div class="shelf">
+    <h3><%= link_to shelf.name, shelf_path(shelf) %></h3>
+    <% shelf.books.each do |book| %>
+      <%= link_to image_tag(book.cover), book_path(book) %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to "Add New Shelf", new_shelf_path %>

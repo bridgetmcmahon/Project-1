@@ -44,8 +44,8 @@ s5 = Shelf.create :name => "Currently Reading"
 s6 = Shelf.create :name => "Want to Read"
 
 User.destroy_all
-u1 = User.create :name => "Bridget", :email => "bridget@gmail.com", :password_digest => "chicken"
-u2 = User.create :name => "Todd", :email => "todd@gmail.com", :password_digest => "chicken"
+# u1 = User.create :name => "Bridget", :email => "bridget@gmail.com", :password_digest => "chicken"
+# u2 = User.create :name => "Todd", :email => "todd@gmail.com", :password_digest => "chicken"
 
 
 ########################## ASSOCIATIONS ##########################

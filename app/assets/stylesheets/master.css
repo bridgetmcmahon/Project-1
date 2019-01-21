@@ -51,3 +51,7 @@ nav a {
 .feature {
   max-height: 400px;
 }
+
+.shelf img {
+  max-height: 150px;
+}

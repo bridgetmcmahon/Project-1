@@ -1,2 +1,8 @@
-<h1>Shelves#edit</h1>
-<p>Find me in app/views/shelves/edit.html.erb</p>
+<h1>Edit <%= @shelf.name %></h1>
+
+<%= form_for @shelf do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Update Bookshelf" %>
+<% end %>

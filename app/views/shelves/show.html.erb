@@ -1,2 +1,10 @@
-<h1>Shelves#show</h1>
-<p>Find me in app/views/shelves/show.html.erb</p>
+<h1><%= @shelf.name %></h1>
+
+<% unless @shelf.books.nil? %>
+  <% @shelf.books.each do |book| %>
+    <%= image_tag book.cover %>
+  <% end %>
+<% end %>
+
+<%= link_to "Rename Shelf", edit_shelf_path(@shelf) %>
+<%= link_to "Delete Shelf", shelf_path(@shelf), :method => 'delete' %>
