@@ -4,6 +4,7 @@
     <title>Greatreads</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,8 +13,10 @@
   <body>
     <header>
       <nav>
-        <%= link_to 'Home', root_path %>
+        <i class="fas fa-book-open"></i>
+        <%= link_to 'Greatreads', root_path %>
         <%= link_to 'All Books', books_path %>
+        <%= link_to 'Search Books', books_search_path %>
         <% if @current_user.present? %>
           <%= link_to "My Books", shelves_path %>
           <%= link_to "My Profile", user_path(@current_user) %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root :to => 'pages#home'
+  get '/books/search' => 'books#search'
+  post '/books/search' => 'books#search_result'
   resources :books, :only => [:index, :new, :create, :show]
   resources :authors
   resources :users, :only => [:new, :create, :show, :edit, :update]
