@@ -33,10 +33,12 @@
               <%= link_to "Search Books", books_search_path, :class => "nav-link" %>
             </li>
             <% if @current_user.present? %>
+            <li class="nav-item">
+              <%= link_to "My Books", shelves_path, :class => "nav-link" %>
+            </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Signed in as <%= @current_user.name %></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to "My Books", shelves_path, :class => "dropdown-item" %>
                   <%= link_to "My Profile", user_path(@current_user), :class => "dropdown-item" %>
                   <%= link_to "Sign Out", login_path, :class => "dropdown-item", :method => 'delete' %>
                 </div>

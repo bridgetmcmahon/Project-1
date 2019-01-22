@@ -2,7 +2,7 @@
 
 <% @current_user.shelves.each do |shelf| %>
   <div class="shelf">
-    <h3><%= link_to shelf.name, shelf_path(shelf) %></h3>
+    <h3 class="shelf-name"><%= link_to shelf.name, shelf_path(shelf) %></h3>
       <% if shelf.books.empty? %>
         <p>There are no books in this shelf yet</p>
       <% else %>

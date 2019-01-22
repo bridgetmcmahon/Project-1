@@ -81,12 +81,28 @@ h1 {
   display: inline-block;
   text-align: center;
   margin: 10px 5px;
-  max-height: 200px;
+  min-height: 225px;
+  max-height: 300px;
   vertical-align: top;
 }
 
 .books p {
   max-width: 200px;
+}
+
+.books img {
+  max-height: 150px;
+}
+
+.books a {
+  display: block;
+  font-size: 0.9em;
+  color: #05A8AA;
+  text-decoration: none;
+}
+
+.books a:hover, .shelf-name a:hover {
+  text-decoration: underline;
 }
 
 .books-thumbnail {
@@ -95,6 +111,13 @@ h1 {
 
 .shelf img {
   max-height: 150px;
+}
+
+.shelf-name a {
+  font-size: 0.9em;
+  color: #05A8AA;
+  text-decoration: none;
+  font-family: 'Staatliches', cursive;
 }
 
 .user-image {
@@ -107,4 +130,8 @@ h1 {
 
 .controls {
   margin-top: 80px;
+}
+
+.feature {
+  max-height: 50vh;
 }

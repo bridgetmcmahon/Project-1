@@ -3,7 +3,7 @@
 <div class="row">
   <% @books.each do |book| %>
   <div class="col-md-2 books">
-    <%= image_tag(book.image_link) %>
+    <%= link_to image_tag(book.image_link), add_by_isbn_path(book.isbn), :method => 'post' %>
     <%= link_to book.title, add_by_isbn_path(book.isbn), :method => 'post'  %>
   </div>
   <% end %>
