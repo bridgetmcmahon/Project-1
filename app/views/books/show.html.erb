@@ -22,12 +22,18 @@
 
 <!-- link to add to shelf -->
 
-<p>Add to Shelf:</p>
-<%= form_tag book_to_shelf_path(@book) do %>
-  <%= select_tag :shelf_id,
-    options_for_select(
-    [["Select a shelf", -1 ]] +
-    @current_user.shelves.pluck(:name, :id)
-    )%>
-  <%= submit_tag "Add Book" %>
+<% if @current_user.present? %>
+  <p>Add to Shelf:</p>
+  <%= form_tag book_to_shelf_path(@book) do %>
+    <%= select_tag :shelf_id,
+      options_for_select(
+      [["Select a shelf", -1 ]] +
+      @current_user.shelves.pluck(:name, :id)
+      )%>
+    <%= submit_tag "Add Book" %>
+  <% end %>
+<% end %>
+
+<% if @current_user.present? && @current_user.admin? %>
+  <%= button_to "Delete Book", @book, :method => 'delete' %>
 <% end %>

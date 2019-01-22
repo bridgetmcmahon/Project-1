@@ -6,12 +6,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new user_params
-    if @user.save
-      session[:user_id] = @user.id
-      @user.shelves.create(:name => "Read")
-      @user.shelves.create(:name => "Currently Reading")
-      @user.shelves.create(:name => "Want to Read")
+    user = User.new user_params
+
+    if user.save
+      session[:user_id] = user.id
+      user.shelves.create(:name => "Read")
+      user.shelves.create(:name => "Currently Reading")
+      user.shelves.create(:name => "Want to Read")
       redirect_to root_path
     else
       render :new
@@ -25,6 +26,13 @@ class UsersController < ApplicationController
   def update
     user = User.find params[:id]
     user.update user_params
+
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      user.image = req["public_id"]
+      user.save
+    end
+
     redirect_to user
   end
 

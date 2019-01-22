@@ -5,6 +5,7 @@ class BooksController < ApplicationController
   end
 
   def new
+    check_for_admin
     @book = Book.new
   end
 
@@ -45,20 +46,8 @@ class BooksController < ApplicationController
 
   def search_result
     @title = params[:title].split.map(&:capitalize).join(' ')
-    @books = GoogleBooks.search(@title, {:count => 15}).select(&:isbn)
+    @books = GoogleBooks.search(@title, {:count => 20}).select(&:isbn)
     render :results
-
-    # book = Book.find_or_create_by(title: title) do |book|
-    #   book.title = info["items"][0]["volumeInfo"]["title"]
-    #   book.cover = info["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
-    #   info["items"][0]["volumeInfo"]["authors"].each do |a|
-    #     author = Author.find_or_create_by(name: a)
-    #     book.authors << author
-    #   end
-    #   book.synopsis = info["items"][0]["volumeInfo"]["description"]
-    # end
-    #
-    # redirect_to book_path(book)
   end
 
   def add_by_isbn
@@ -79,7 +68,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
-
+    check_for_admin
+    book = Book.find params[:id]
+    book.destroy
+    redirect_to books_path
   end
 
   private
