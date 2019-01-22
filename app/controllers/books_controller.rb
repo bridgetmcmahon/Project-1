@@ -15,15 +15,16 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find params[:id]
-    # raise 'hell'
   end
 
   def edit
-
+    @book = Book.find params[:id]
   end
 
   def update
-
+    book = Book.find params[:id]
+    book.update book_params
+    redirect_to book
   end
 
   def add_book_to_shelf
@@ -43,23 +44,38 @@ class BooksController < ApplicationController
   end
 
   def search_result
-    title = params[:title].split.map(&:capitalize).join(' ')
-    url = "https://www.googleapis.com/books/v1/volumes?q=title:#{ title }"
-    info = HTTParty.get url
+    @title = params[:title].split.map(&:capitalize).join(' ')
+    @books = GoogleBooks.search(@title, {:count => 15}).select(&:isbn)
+    render :results
 
-    # raise "hell"
-    # add check for book search
-    book = Book.find_or_create_by(title: title) do |book|
-      book.title = info["items"][0]["volumeInfo"]["title"]
-      book.cover = info["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
-      info["items"][0]["volumeInfo"]["authors"].each do |a|
+    # book = Book.find_or_create_by(title: title) do |book|
+    #   book.title = info["items"][0]["volumeInfo"]["title"]
+    #   book.cover = info["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
+    #   info["items"][0]["volumeInfo"]["authors"].each do |a|
+    #     author = Author.find_or_create_by(name: a)
+    #     book.authors << author
+    #   end
+    #   book.synopsis = info["items"][0]["volumeInfo"]["description"]
+    # end
+    #
+    # redirect_to book_path(book)
+  end
+
+  def add_by_isbn
+    isbn = params[:isbn]
+    book = GoogleBooks.search('isbn:' + isbn).first
+    new_book = Book.find_or_create_by(isbn:isbn) do |b|
+      b.title = book.title
+      b.cover = book.image_link
+      b.isbn = book.isbn
+      b.synopsis = book.description
+      book.authors.split(',').each do |a|
         author = Author.find_or_create_by(name: a)
-        book.authors << author
+        b.authors << author
       end
-      book.synopsis = info["items"][0]["volumeInfo"]["description"]
     end
 
-    redirect_to book_path(book)
+    redirect_to book_path(new_book)
   end
 
   def destroy

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root :to => 'pages#home'
   get '/books/search' => 'books#search'
-  post '/books/search' => 'books#search_result'
+  get '/books/search_results' => 'books#search_result'
+  post '/books/addbyisbn/:isbn' => 'books#add_by_isbn', :as => 'add_by_isbn'
   resources :books
   resources :authors
   resources :users, :only => [:new, :create, :show, :edit, :update]

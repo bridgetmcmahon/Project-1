@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor', group: :production
 
 gem 'httparty', '~> 0.13.7'
+gem 'googlebooks', '~> 0.0.9'
+
 
 # gem 'pg_search', '~> 1.0', '>= 1.0.5'
 
