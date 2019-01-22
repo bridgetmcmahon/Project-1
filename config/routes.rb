@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
 
   # BOOKS #
-  resources :books
   get '/books/search' => 'books#search'
   get '/books/search_results' => 'books#search_result'
   post '/books/addbyisbn/:isbn' => 'books#add_by_isbn', :as => 'add_by_isbn'
+  resources :books
 
   # AUTHORS #
   resources :authors, :only => [:index, :show, :edit, :update]

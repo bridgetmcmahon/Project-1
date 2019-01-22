@@ -96,3 +96,15 @@ h1 {
 .shelf img {
   max-height: 150px;
 }
+
+.user-image {
+  max-width: 300px;
+}
+
+.shelf p {
+  line-height: 150px;
+}
+
+.controls {
+  margin-top: 80px;
+}

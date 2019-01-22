@@ -1,5 +1,7 @@
 <h1><%= @user.name %></h1>
 
-<%= cl_image_tag(@user.image) %>
+<%= cl_image_tag(@user.image, :class => "user-image") %>
 
-<%= link_to "Edit Profile", edit_user_path(@user.id) %>
+<% if @current_user.id == @user.id %>
+  <%= button_to "Edit Profile", edit_user_path(@user.id), :class => "btn btn-info" %>
+<% end %>

@@ -1,7 +1,13 @@
 <h1>Search Books</h1>
 
 <%= form_tag books_search_results_path, :method => 'get' %>
-<%= label_tag :title %>
-<%= text_field_tag :title %>
+  <div class="form-group">
+    <%= label_tag "Search by title" %>
+    <%= text_field_tag :title, nil, :class => 'form-control' %>
+  </div>
 
-<%= submit_tag "Search" %>
+  <div class="form-group">
+    <%= label_tag "Search by Author" %>
+    <%= text_field_tag :author, nil, :class => 'form-control' %>
+  </div>
+<%= submit_tag "Search", :class => 'btn btn-info' %>

@@ -32,6 +32,7 @@ class BooksController < ApplicationController
     book = Book.find params[:id]
     shelf = Shelf.find params[:shelf_id]
     shelf.books << book
+    redirect_to shelf
   end
 
   def delete_book_from_shelf
@@ -46,8 +47,16 @@ class BooksController < ApplicationController
 
   def search_result
     @title = params[:title].split.map(&:capitalize).join(' ')
-    @books = GoogleBooks.search(@title, {:count => 20}).select(&:isbn)
-    render :results
+    @author = params[:author].split.map(&:capitalize).join(' ')
+
+    if @title.present?
+      @books = GoogleBooks.search(@title, {:count => 20}).select(&:isbn)
+      render :results
+    else
+      search_term = 'inauthor:' + @author
+      @books = GoogleBooks.search(search_term, {:count => 20}).select(&:isbn)
+      render :results
+    end
   end
 
   def add_by_isbn

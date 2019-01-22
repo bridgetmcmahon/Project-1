@@ -25,6 +25,10 @@
 <% if @current_user.present? %>
   <p>Add to Shelf:</p>
   <%= form_tag book_to_shelf_path(@book) do %>
+    <%# <%= radio_button_tag @current_user.shelves.first.name, @current_user.shelves.first.name %>
+
+    <%= collection_radio_buttons(:book, :shelf_ids, @current_user.shelves, :id, :name) %>
+
     <%= select_tag :shelf_id,
       options_for_select(
       [["Select a shelf", -1 ]] +

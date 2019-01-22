@@ -1,24 +1,23 @@
-# README
+# Project 1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a very simply replicate of Goodreads.
 
-Things you may want to cover:
+## Why I made this
 
-* Ruby version
+This project was completed as part of my course at General Assembly. The task was to create a website with a working back-end server as well as a front-end to demonstrate what we've learned in the course so far.
 
-* System dependencies
+### System dependencies
+Gems
+- bcrypt
+- rails_12factor
+- httparty
+- googlebooks
+- cloudinary
+- bootstrap
+- jquery-rails
 
-* Configuration
+APIs
+- Google Books
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Database
+The database is run using PostgreSQL
