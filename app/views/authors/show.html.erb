@@ -1,14 +1,21 @@
-<div class="container">
-  <h1><%= @author.name %></h1>
+<div class="header">
+  <div class="container">
+    <h1><%= @author.name %></h1>
+  </div>
+</div>
 
-  <%# <%= image_tag @author.image, :class => 'feature' %>
-  <ul>
-    <li>Book(s):
-      <ul>
-        <% @author.books.each do |book| %>
-          <li><%= link_to book.title, book_path(book) %></li>
-        <% end %>
-      </ul>
-    </li>
-  </ul>
+<div class="container">
+  <h3>Book(s):</h3>
+    <div class="row">
+      <% @author.books.each do |book| %>
+        <div class="card col-md-3 books">
+          <a href="<%= book_path(book) %>">
+            <%= image_tag(book.cover, :class => 'card-img-top') %>
+            <div class="card-body">
+              <p class="card-title"><%= book.title %></p>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
 </div>

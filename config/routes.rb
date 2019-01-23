@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # BOOKS #
   get '/books/search' => 'books#search'
   get '/books/search_results' => 'books#search_result'
-  post '/books/addbyisbn/:isbn' => 'books#add_by_isbn', :as => 'add_by_isbn'
+  post '/books/addbyisbn/:isbn' => 'books#add_by_isbn', :as => :add_by_isbn
   get '/books/genres/:genres' => 'books#filter_genre', :as => :view_genre
   resources :books
 

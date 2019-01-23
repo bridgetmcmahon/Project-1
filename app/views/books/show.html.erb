@@ -5,37 +5,45 @@
 </div>
 
 <!-- display book info -->
+
 <div class="container">
-  <%= image_tag @book.cover, :class => 'feature' %>
-  <ul>
-    <li>Author(s):
-    <% @book.authors.each do |author| %>
-      <%= link_to author.name, author_path(author.id) %>
-    <% end %>
-    </li>
-    <li>Genres:</li>
-      <ul>
-        <% @book.genres.each do |genre| %>
-          <li><%= genre.name %></li>
-        <% end %>
-      </ul>
-    <% unless @book.synopsis.nil? %>
-    <li>Synopsis: <%= @book.synopsis %></li>
-    <% end %>
-  </ul>
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag @book.cover, :class => 'feature' %>
+    </div>
+    <div class="col-md-9">
+      <h3>Author(s):</h3>
+      <p>
+      <% @book.authors.each do |author| %>
+        <%= link_to author.name, author_path(author.id) %>
+      <% end %>
+      </p>
+      <h3>Genres:</h3>
+        <ul>
+          <% @book.genres.each do |genre| %>
+            <li><%= genre.name %></li>
+          <% end %>
+        </ul>
+      <% unless @book.synopsis.nil? %>
+      <h3>Synopsis:</h3>
+      <p class="synopsis"><%= @book.synopsis %></p>
+      <% end %>
+    </div>
+  </div>
 
   <!-- link to add to shelf -->
 
   <% if @current_user.present? %>
-    <p>Add to Shelf:</p>
+    <h3>Add to Shelf:</h3>
     <%= form_tag book_to_shelf_path(@book) do %>
 
       <% @current_user.shelves.each do |shelf| %>
         <%= radio_button_tag :shelf_id, shelf.id, shelf.book_ids.include?(@book.id) %>
         <%= label_tag :shelf_id, shelf.name %>
+        <br />
       <% end %>
 
-      <%= submit_tag "Add Book to Shelf" %>
+      <%= submit_tag "Add Book to Shelf", :class => 'btn btn-info' %>
     <% end %>
   <% end %>
 

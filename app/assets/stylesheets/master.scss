@@ -93,6 +93,14 @@ body {
 
 .container {
   margin: 0 auto;
+
+  a {
+    color: #05A8AA;
+  }
+
+  h3 {
+    color: #25274D;
+  }
 }
 
 h1, h2, h3 {
@@ -109,8 +117,7 @@ h1, h2, h3 {
 .card {
   max-height: 250px;
   max-width: 250px;
-  border-top: none;
-  border-bottom: none;
+  border: none;
   border-radius: 0px;
 }
 
@@ -183,7 +190,8 @@ h1, h2, h3 {
 }
 
 .feature {
-  max-height: 50vh;
+  max-width: 100%;
+  min-width: 90%;
 }
 
 .custom-wrapper {
@@ -199,4 +207,8 @@ h1, h2, h3 {
   p {
     font-size: 150%;
   }
+}
+
+.synopsis {
+  font-size: 80%;
 }
