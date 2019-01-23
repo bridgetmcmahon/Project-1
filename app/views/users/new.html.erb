@@ -9,18 +9,18 @@
     </ol>
   <% end %>
 
-  <%= form_for @user do |f| %>
-    <%= f.label :name %>
+  <%= form_for(@user, :class => 'form-group') do |f| %>
+    <%= f.label :name, :class => 'form-control' %>
     <%= f.text_field :name %>
 
     <%= f.label :email %>
-    <%= f.email_field :email, :required => true, :autofocus => true %>
+    <%= f.email_field :email, :class => 'form-control', :required => true, :autofocus => true %>
 
     <%= f.label :password %>
-    <%= f.password_field :password, :required => true %>
+    <%= f.password_field :password, :class => 'form-control', :required => true %>
 
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, :required => true %>
+    <%= f.password_field :password_confirmation, :class => 'form-control', :required => true %>
 
     <%= f.submit "Sign Up!" %>
   <% end %>
