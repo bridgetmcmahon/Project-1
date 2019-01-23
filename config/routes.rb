@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   resources :books
 
   # AUTHORS #
-  resources :authors, :only => [:index, :show, :edit, :update]
+  resources :authors, :only => [:index, :show]
 
   # USERS #
-  resources :users, :only => [:new, :index, :create, :show, :edit, :update]
+  resources :users, :except => [:destroy]
 
   # SHELVES #
-  resources :shelves
+  resources :shelves, :except => [:new, :create, :destroy]
   post '/books/:id/shelf' => 'books#add_book_to_shelf', :as => :book_to_shelf
   delete '/books/:id/shelf' => 'books#delete_book_from_shelf'
 

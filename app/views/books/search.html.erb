@@ -1,6 +1,10 @@
-<div class="container">
-  <h1>Search Books</h1>
+<div class="header">
+  <div class="container">
+    <h1>Search Books</h1>
+  </div>
+</div>
 
+<div class="container">
   <%= form_tag books_search_results_path, :method => 'get' %>
     <div class="form-group">
       <%= label_tag "Search by title" %>

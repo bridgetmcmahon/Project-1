@@ -1,6 +1,10 @@
-<div class="container">
-  <h1><%= @shelf.name %></h1>
+<div class="header">
+  <div class="container">
+    <h1><%= @shelf.name %></h1>
+  </div>
+</div>
 
+<div class="container">
   <% unless @shelf.books.nil? %>
     <div class="block">
       <div class="row">

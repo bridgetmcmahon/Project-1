@@ -6,14 +6,15 @@
 
 <div class="container">
   <h3>Find books by genre:</h3>
-  <%= link_to "Fiction", view_genre_path(:genres => 'Fiction') %> |
-  <%= link_to "Non-Fiction", view_genre_path(:genres => 'Non-fiction') %> |
-  <%= link_to "Action & Adventure", view_genre_path(:genres => 'Action and Adventure') %> |
-  <%= link_to "Thriller", view_genre_path(:genres => 'Thriller') %> |
-  <%= link_to "Science Fiction", view_genre_path(:genres => 'Science Fiction') %> | 
-  <%= link_to "Fantasy", view_genre_path(:genres => 'Fantasy') %> |
+  <%= link_to "Fiction", view_genre_path(:genres => 'Fiction') %> <span class="divider">|</span>
+  <%= link_to "Non-Fiction", view_genre_path(:genres => 'Non-fiction') %> <span class="divider">|</span>
+  <%= link_to "Action & Adventure", view_genre_path(:genres => 'Action and Adventure') %> <span class="divider">|</span>
+  <%= link_to "Thriller", view_genre_path(:genres => 'Thriller') %> <span class="divider">|</span>
+  <%= link_to "Science Fiction", view_genre_path(:genres => 'Science Fiction') %> <span class="divider">|</span>
+  <%= link_to "Fantasy", view_genre_path(:genres => 'Fantasy') %> <span class="divider">|</span>
   <%= link_to "Young Adult", view_genre_path(:genres => 'Young Adult') %>
 
+  <hr>
   <!-- display all books -->
   <div class="row">
     <% @books.each do |book| %>
@@ -27,6 +28,8 @@
       </div>
     <% end %>
   </div>
+
+  <hr>
 
   <div>
     <p>Can't find what you're looking for? Search for a book <%= link_to "here", books_search_path %></p>

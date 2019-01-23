@@ -1,6 +1,10 @@
-<div class="container">
-  <h1>My Books</h1>
+<div class="header">
+  <div class="container">
+    <h1>My Books</h1>
+  </div>
+</div>
 
+<div class="container">
   <% @current_user.shelves.each do |shelf| %>
     <div class="shelf">
       <h3 class="shelf-name"><%= link_to shelf.name, shelf_path(shelf) %></h3>
@@ -14,8 +18,3 @@
       <hr>
     </div>
   <% end %>
-
-  <div class="controls">
-    <%= link_to "Add New Shelf", new_shelf_path, :class => 'btn btn-info' %>
-  </div>
-</div>
