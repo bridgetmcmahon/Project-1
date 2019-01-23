@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :authors, :only => [:index, :show, :edit, :update]
 
   # USERS #
-  resources :users, :only => [:new, :create, :show, :edit, :update]
+  resources :users, :only => [:new, :index, :create, :show, :edit, :update]
 
   # SHELVES #
   resources :shelves

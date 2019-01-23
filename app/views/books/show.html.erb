@@ -1,40 +1,44 @@
-<h1><%= @book.title %></h1>
+<div class="container">
+  <div class="custom-wrapper">
+    <h1><%= @book.title %></h1>
+  </div>
 
-<!-- display book info -->
+  <!-- display book info -->
 
-<%= image_tag @book.cover, :class => 'feature' %>
-<ul>
-  <li>Author(s):
-  <% @book.authors.each do |author| %>
-    <%= link_to author.name, author_path(author.id) %>
-  <% end %>
-  </li>
-  <li>Genres:</li>
-    <ul>
-      <% @book.genres.each do |genre| %>
-        <li><%= genre.name %></li>
-      <% end %>
-    </ul>
-  <% unless @book.synopsis.nil? %>
-  <li>Synopsis: <%= @book.synopsis %></li>
-  <% end %>
-</ul>
-
-<!-- link to add to shelf -->
-
-<% if @current_user.present? %>
-  <p>Add to Shelf:</p>
-  <%= form_tag book_to_shelf_path(@book) do %>
-
-    <% @current_user.shelves.each do |shelf| %>
-      <%= radio_button_tag :shelf_id, shelf.id, shelf.book_ids.include?(@book.id) %>
-      <%= label_tag :shelf_id, shelf.name %>
+  <%= image_tag @book.cover, :class => 'feature' %>
+  <ul>
+    <li>Author(s):
+    <% @book.authors.each do |author| %>
+      <%= link_to author.name, author_path(author.id) %>
     <% end %>
+    </li>
+    <li>Genres:</li>
+      <ul>
+        <% @book.genres.each do |genre| %>
+          <li><%= genre.name %></li>
+        <% end %>
+      </ul>
+    <% unless @book.synopsis.nil? %>
+    <li>Synopsis: <%= @book.synopsis %></li>
+    <% end %>
+  </ul>
 
-    <%= submit_tag "Add Book to Shelf" %>
+  <!-- link to add to shelf -->
+
+  <% if @current_user.present? %>
+    <p>Add to Shelf:</p>
+    <%= form_tag book_to_shelf_path(@book) do %>
+
+      <% @current_user.shelves.each do |shelf| %>
+        <%= radio_button_tag :shelf_id, shelf.id, shelf.book_ids.include?(@book.id) %>
+        <%= label_tag :shelf_id, shelf.name %>
+      <% end %>
+
+      <%= submit_tag "Add Book to Shelf" %>
+    <% end %>
   <% end %>
-<% end %>
 
-<% if @current_user.present? && @current_user.admin? %>
-  <%= button_to "Delete Book", @book, :method => 'delete' %>
-<% end %>
+  <% if @current_user.present? && @current_user.admin? %>
+    <%= button_to "Delete Book", @book, :method => 'delete' %>
+  <% end %>
+</div>

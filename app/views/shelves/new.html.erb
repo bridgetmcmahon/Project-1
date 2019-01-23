@@ -1,8 +1,10 @@
-<h1>Add a New Shelf</h1>
+<div class="container">
+  <h1>Add a New Shelf</h1>
 
-<%= form_for @shelf do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= form_for @shelf do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-  <%= f.submit "Add Shelf" %>
-<% end %>
+    <%= f.submit "Add Shelf" %>
+  <% end %>
+</div>

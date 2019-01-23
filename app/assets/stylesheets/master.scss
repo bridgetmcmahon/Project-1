@@ -71,6 +71,14 @@ nav a {
 
 @import url('https://fonts.googleapis.com/css?family=Lato|Staatliches');
 
+.navbar-light {
+  background-color: #4472CA;
+}
+
+.container {
+  margin: 0 auto;
+}
+
 h1 {
   margin: 15px 0;
   text-transform: uppercase;
@@ -84,24 +92,28 @@ h1 {
   min-height: 225px;
   max-height: 300px;
   vertical-align: top;
+
+  p {
+    max-width: 200px;
+  }
+
+  img {
+    max-height: 150px;
+  }
+
+  a {
+    display: block;
+    font-size: 0.9em;
+    color: #05A8AA;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
-.books p {
-  max-width: 200px;
-}
-
-.books img {
-  max-height: 150px;
-}
-
-.books a {
-  display: block;
-  font-size: 0.9em;
-  color: #05A8AA;
-  text-decoration: none;
-}
-
-.books a:hover, .shelf-name a:hover {
+.shelf-name a:hover {
   text-decoration: underline;
 }
 
@@ -109,8 +121,14 @@ h1 {
   max-height: 150px;
 }
 
-.shelf img {
-  max-height: 150px;
+.shelf {
+  img {
+    max-height: 150px;
+  }
+
+  p {
+    line-height: 150px;
+  }
 }
 
 .shelf-name a {
@@ -124,14 +142,26 @@ h1 {
   max-width: 300px;
 }
 
-.shelf p {
-  line-height: 150px;
-}
-
 .controls {
   margin-top: 80px;
 }
 
 .feature {
   max-height: 50vh;
+}
+
+.custom-wrapper {
+  background-color: grey;
+}
+
+.jumbotron {
+  background-image: url(bookcase-bw.jpg);
+  background-size: cover;
+  height: 100vh;
+  color: #FFFFFF;
+  font-family: 'Staatliches', cursive;
+
+  p {
+    font-size: 150%;
+  }
 }

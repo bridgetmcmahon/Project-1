@@ -1,11 +1,13 @@
-<h1>Edit Profile</h1>
+<div class="container">
+  <h1>Edit Profile</h1>
 
-<%= form_for(@user, :class => 'form-group', :html => {:multipart => true}) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, :class => 'form-control' %>
+  <%= form_for(@user, :class => 'form-group', :html => {:multipart => true}) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => 'form-control' %>
 
-  <%= f.label :image %>
-  <%= f.cl_image_upload :image, :class => 'btn btn-info' %>
+    <%= f.label :image %>
+    <%= f.cl_image_upload :image, :class => 'btn btn-info' %>
 
-  <%= f.submit "Update", :class => 'btn btn-info' %>
-<% end %>
+    <%= f.submit "Update", :class => 'btn btn-info' %>
+  <% end %>
+</div>

@@ -1,9 +1,11 @@
-<h1>All Authors</h1>
+<div class="container">
+  <h1>All Authors</h1>
 
-<% @authors.each do |author| %>
-  <div class="authors">
-    <a href="<%= author_path(author) %>">
-      <p><%= author.name %></p>
-    </a>
-  </div>
-<% end %>
+  <% @authors.each do |author| %>
+    <div class="authors">
+      <a href="<%= author_path(author) %>">
+        <p><%= author.name %></p>
+      </a>
+    </div>
+  <% end %>
+</div>

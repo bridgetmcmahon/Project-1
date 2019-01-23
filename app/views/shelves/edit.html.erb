@@ -1,8 +1,10 @@
-<h1>Edit <%= @shelf.name %></h1>
+<div class="container">
+  <h1>Edit <%= @shelf.name %></h1>
 
-<%= form_for @shelf do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= form_for @shelf do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-  <%= f.submit "Update Bookshelf" %>
-<% end %>
+    <%= f.submit "Update Bookshelf" %>
+  <% end %>
+</div>

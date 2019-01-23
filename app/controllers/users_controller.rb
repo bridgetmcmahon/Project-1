@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :check_for_admin, :only => [:index]
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -37,8 +41,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    check_for_login
     @user = User.find params[:id]
-    # raise 'hell'
   end
 
   private
