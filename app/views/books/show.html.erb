@@ -1,10 +1,11 @@
-<div class="container">
-  <div class="custom-wrapper">
-    <h1><%= @book.title %></h1>
+<div class="header">
+  <div class="container">
+      <h1><%= @book.title %></h1>
   </div>
+</div>
 
-  <!-- display book info -->
-
+<!-- display book info -->
+<div class="container">
   <%= image_tag @book.cover, :class => 'feature' %>
   <ul>
     <li>Author(s):
