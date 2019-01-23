@@ -1,6 +1,10 @@
-<div class="container">
-  <h1>Sign Up</h1>
+<div class="header">
+  <div class="container">
+    <h1>Sign Up</h1>
+  </div>
+</div>
 
+<div class="container">
   <% if @user.errors.any? %>
     <ol>
       <% @user.errors.full_messages.each do |msg| %>
@@ -10,11 +14,11 @@
   <% end %>
 
   <%= form_for(@user, :class => 'form-group') do |f| %>
-    <%= f.label :name, :class => 'form-control' %>
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => 'form-control', :autofocus => true, :required => true %>
 
     <%= f.label :email %>
-    <%= f.email_field :email, :class => 'form-control', :required => true, :autofocus => true %>
+    <%= f.email_field :email, :class => 'form-control', :required => true %>
 
     <%= f.label :password %>
     <%= f.password_field :password, :class => 'form-control', :required => true %>
@@ -22,6 +26,6 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, :class => 'form-control', :required => true %>
 
-    <%= f.submit "Sign Up!" %>
+    <%= f.submit "Sign Up!", :class => 'btn btn-info' %>
   <% end %>
 </div>
