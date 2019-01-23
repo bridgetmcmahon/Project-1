@@ -25,16 +25,13 @@
 <% if @current_user.present? %>
   <p>Add to Shelf:</p>
   <%= form_tag book_to_shelf_path(@book) do %>
-    <%# <%= radio_button_tag @current_user.shelves.first.name, @current_user.shelves.first.name %>
 
-    <%= collection_radio_buttons(:book, :shelf_ids, @current_user.shelves, :id, :name) %>
+    <% @current_user.shelves.each do |shelf| %>
+      <%= radio_button_tag :shelf_id, shelf.id, shelf.book_ids.include?(@book.id) %>
+      <%= label_tag :shelf_id, shelf.name %>
+    <% end %>
 
-    <%= select_tag :shelf_id,
-      options_for_select(
-      [["Select a shelf", -1 ]] +
-      @current_user.shelves.pluck(:name, :id)
-      )%>
-    <%= submit_tag "Add Book" %>
+    <%= submit_tag "Add Book to Shelf" %>
   <% end %>
 <% end %>
 

@@ -1,5 +1,12 @@
 <h1>All Books</h1>
 
+<h3>Find books by genre:</h3>
+<%= link_to "Fiction", view_genre_path(:genres => 'Fiction') %> |
+<%= link_to "Non-Fiction", view_genre_path(:genres => 'Non-fiction') %> |
+<%= link_to "Action & Adventure", view_genre_path(:genres => 'Action and Adventure') %> |
+<%= link_to "Thriller", view_genre_path(:genres => 'Thriller') %> |
+<%= link_to "Science Fiction", view_genre_path(:genres => 'Science Fiction') %>
+
 <!-- display all books -->
 <div class="row">
   <% @books.each do |book| %>

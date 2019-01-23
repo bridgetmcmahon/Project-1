@@ -1,7 +1,23 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all.shuffle
+    @books = Book.all.take(20).shuffle
+  end
+
+  def filter_genre
+    @books = Book.all
+
+    @selected_books = []
+    @books.each do |book|
+      book.genres.each do |genre|
+        if genre.name.include?(params[:genre].to_s)
+          @selected_books << book
+        end
+      end
+    end
+    @books = @selected_books
+    # raise 'hell'
+    render :index
   end
 
   def new
@@ -31,6 +47,9 @@ class BooksController < ApplicationController
   def add_book_to_shelf
     book = Book.find params[:id]
     shelf = Shelf.find params[:shelf_id]
+    @current_user.shelves.each do |shelf|
+      shelf.books.destroy(book)
+    end
     shelf.books << book
     redirect_to shelf
   end
@@ -50,11 +69,17 @@ class BooksController < ApplicationController
     @author = params[:author].split.map(&:capitalize).join(' ')
 
     if @title.present?
-      @books = GoogleBooks.search(@title, {:count => 20}).select(&:isbn)
+      @books = GoogleBooks.search(@title, {:count => 20}).select(&:isbn).select(&:image_link)
       render :results
     else
       search_term = 'inauthor:' + @author
-      @books = GoogleBooks.search(search_term, {:count => 20}).select(&:isbn)
+      @books = GoogleBooks.search(search_term, {:count => 30}).select(&:isbn).select(&:image_link)
+
+      @books.each do |book|
+        unless book.authors == @author
+          @books.delete(book)
+        end
+      end
       render :results
     end
   end
@@ -66,6 +91,10 @@ class BooksController < ApplicationController
       b.title = book.title
       b.cover = book.image_link
       b.isbn = book.isbn
+      book.categories.split(',').each do |g|
+        genre = Genre.find_or_create_by(name: g)
+        b.genres << genre
+      end
       b.synopsis = book.description
       book.authors.split(',').each do |a|
         author = Author.find_or_create_by(name: a)
@@ -85,6 +114,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :cover, :synopsis)
+    params.require(:book).permit(:title, :cover, :synopsis, :genre)
   end
 end
