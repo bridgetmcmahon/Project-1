@@ -8,16 +8,16 @@
 
 Book.destroy_all
 
-b1 = Book.create :title => "The Alchemist", :cover => "https://www.booktopia.com.au/http_coversbooktopiacomau/big/9780062315007/the-alchemist-25th-anniversary.jpg"
-b2 = Book.create :title => "Sapiens: A Brief History of Humankind", :cover => "https://images-na.ssl-images-amazon.com/images/I/51Sn8PEXwcL.jpg"
+b1 = Book.create :title => "The Alchemist", :cover => "https://www.booktopia.com.au/http_coversbooktopiacomau/big/9780062315007/the-alchemist-25th-anniversary.jpg", :isbn => '9780062416216'
+b2 = Book.create :title => "Sapiens: A Brief History of Humankind", :cover => "https://images-na.ssl-images-amazon.com/images/I/51Sn8PEXwcL.jpg", :isbn => '9781448190690'
 b3 = Book.create :title => "The Adventures of Sherlock Holmes", :cover => "https://strandmag.com/wp-content/uploads/2016/06/Enlarge-Image-The-Adventures-of-Sherlock-Holmes-and-Other-Stories-by-Doyle-Arthur-Conan-Sir-Cramer-Michael-A.-Ph.D..jpeg"
 b4 = Book.create :title => "The Count of Monte Cristo", :cover => "https://images.gr-assets.com/books/1330242790l/1088140.jpg"
-b5 = Book.create :title => "Nine Perfect Strangers", :cover => "https://www.booktopia.com.au/http_coversbooktopiacomau/big/9781743534922/nine-perfect-strangers.jpg"
+b5 = Book.create :title => "Nine Perfect Strangers", :cover => "https://www.booktopia.com.au/http_coversbooktopiacomau/big/9781743534922/nine-perfect-strangers.jpg", :isbn => '9781760780982'
 b6 = Book.create :title => "The Tattooist of Auschwitz", :cover => "https://dynamic.indigoimages.ca/books/0062877003.jpg?altimages=false&scaleup=true&maxheight=515&width=380&quality=85&sale=43&lang=en"
 
 b7 = Book.create :title => "Brave New World", :cover => "https://images-na.ssl-images-amazon.com/images/I/51Cj3fsiwdL.jpg"
-b8 = Book.create :title => "The Demon Haunted World: Science as a Candle in the Dark", :cover => "https://images-na.ssl-images-amazon.com/images/I/71VkSXM%2BPKL.jpg"
-b9 = Book.create :title => "The Odyssey", :cover => "https://images-na.ssl-images-amazon.com/images/I/817y4henSYL.jpg"
+b8 = Book.create :title => "The Demon Haunted World: Science as a Candle in the Dark", :cover => "https://images-na.ssl-images-amazon.com/images/I/71VkSXM%2BPKL.jpg", :isbn => '9780307801043'
+b9 = Book.create :title => "The Odyssey", :cover => "https://images-na.ssl-images-amazon.com/images/I/817y4henSYL.jpg", :isbn => '9780140268867'
 b10 = Book.create :title => "Harry Potter and the Philosopher's Stone", :cover => "https://media.bloomsbury.com/rep/bj/9780747532699.jpg"
 b11 = Book.create :title => "Harry Potter and the Chamber of Secrets", :cover => "https://images-na.ssl-images-amazon.com/images/I/51kdLYNJFsL._SX326_BO1,204,203,200_.jpg"
 b12 = Book.create :title => "Harry Potter and the Prisoner of Azkaban", :cover => "https://images-na.ssl-images-amazon.com/images/I/51vsSNLsBgL._SX326_BO1,204,203,200_.jpg"
@@ -27,8 +27,8 @@ b15 = Book.create :title => "Harry Potter and the Half-Blood Prince", :cover => 
 b16 = Book.create :title => "Harry Potter and the Deathly Hallows", :cover => "https://media.bloomsbury.com/rep/bj/9780747591054.jpg"
 b17 = Book.create :title => "Le Petit Prince", :cover => "https://images-na.ssl-images-amazon.com/images/I/51364NhwLoL._SX329_BO1,204,203,200_.jpg"
 b18 = Book.create :title => "Nineteen Eighty-Four", :cover => "https://images-na.ssl-images-amazon.com/images/I/71Y5qibEolL.jpg"
-b19 = Book.create :title => "I Am Pilgrim", :cover => "https://images.gr-assets.com/books/1403345411l/18144124.jpg"
-b20 = Book.create :title => "Jaws", :cover => "https://images-na.ssl-images-amazon.com/images/I/81LzGlJFPYL._RI_.jpg"
+b19 = Book.create :title => "I Am Pilgrim", :cover => "https://images.gr-assets.com/books/1403345411l/18144124.jpg", :isbn => '9781439177723'
+b20 = Book.create :title => "Jaws", :cover => "https://images-na.ssl-images-amazon.com/images/I/81LzGlJFPYL._RI_.jpg", :isbn => '9781743287682'
 
 Author.destroy_all
 

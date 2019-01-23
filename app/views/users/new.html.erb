@@ -9,6 +9,9 @@
 <% end %>
 
 <%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
   <%= f.label :email %>
   <%= f.email_field :email, :required => true, :autofocus => true %>
 

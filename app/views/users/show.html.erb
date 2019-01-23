@@ -3,5 +3,5 @@
 <%= cl_image_tag(@user.image, :class => "user-image") %>
 
 <% if @current_user.id == @user.id %>
-  <%= button_to "Edit Profile", edit_user_path(@user.id), :class => "btn btn-info" %>
+  <%= link_to "Edit Profile", edit_user_path(@user.id), :class => "btn btn-info" %>
 <% end %>

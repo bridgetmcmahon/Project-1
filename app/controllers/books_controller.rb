@@ -10,13 +10,12 @@ class BooksController < ApplicationController
     @selected_books = []
     @books.each do |book|
       book.genres.each do |genre|
-        if genre.name.include?(params[:genre].to_s)
+        if genre.name == (params[:genres].to_s)
           @selected_books << book
         end
       end
     end
     @books = @selected_books
-    # raise 'hell'
     render :index
   end
 
