@@ -6,22 +6,22 @@
 
 <div class="container">
   <% unless @shelf.books.nil? %>
-    <div class="block">
+    <% @shelf.books.each do |book| %>
       <div class="row">
-        <% @shelf.books.each do |book| %>
-          <div class="col-md-2 books">
-            <%= link_to image_tag(book.cover, :class => "books"), book_path(book) %>
-            <%= button_to "Remove from Shelf",
-              book_to_shelf_path(book.id, :shelf_id => @shelf.id), :class => 'btn btn-warning',
-              :method => 'delete' %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
 
-  <div class="controls">
-    <%= link_to "Rename Shelf", edit_shelf_path(@shelf), :class => 'btn btn-info' %>
-    <%= link_to "Delete Shelf", shelf_path(@shelf), :class => 'btn btn-danger', :method => 'delete' %>
-  </div>
-</div>
+        <div class="col-md-2 shelf">
+          <%= link_to image_tag(book.cover), book_path(book) %>
+        </div>
+
+        <div class="col-md-7">
+          <h4><%= book.title %></h4>
+          <p><%= book.authors.first.name %></p>
+          <!-- <p><%= book.synopsis.truncate(300) unless book.synopsis.nil? %></p> -->
+          <%= button_to "Remove from Shelf",
+          book_to_shelf_path(book.id, :shelf_id => @shelf.id), :class => 'btn btn-warning',
+          :method => 'delete' %>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+  <% end %>
