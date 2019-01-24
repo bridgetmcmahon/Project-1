@@ -79,7 +79,7 @@ class BooksController < ApplicationController
       render :results
     else
       search_term = 'inauthor:' + @author
-      @books = GoogleBooks.search(search_term, {:count => 30}).select(&:isbn).select(&:image_link)
+      @books = GoogleBooks.search(search_term, {:count => 30}).select(&:isbn).select(&:image_link).select(&:authors).select(&:title)
 
       @books.each do |book|
         unless book.authors == @author
@@ -93,18 +93,23 @@ class BooksController < ApplicationController
   def add_by_isbn
     isbn = params[:isbn]
     book = GoogleBooks.search('isbn:' + isbn).first
-    new_book = Book.find_or_create_by(isbn:isbn) do |b|
-      b.title = book.title
-      b.cover = book.image_link
-      b.isbn = book.isbn
-      book.categories.split(',').each do |g|
-        genre = Genre.find_or_create_by(name: g)
-        b.genres << genre
-      end
-      b.synopsis = book.description
-      book.authors.split(',').each do |a|
-        author = Author.find_or_create_by(name: a)
-        b.authors << author
+
+      unless book.title.nil? || book.image_link.nil? || book.isbn.nil? || book.authors.nil?
+      new_book = Book.find_or_create_by(isbn:isbn) do |b|
+        b.title = book.title
+        b.cover = book.image_link
+        b.isbn = book.isbn
+
+        book.categories.split(',').each do |g|
+          genre = Genre.find_or_create_by(name: g)
+          b.genres << genre
+        end
+
+        b.synopsis = book.description
+        book.authors.split(',').each do |a|
+          author = Author.find_or_create_by(name: a)
+          b.authors << author
+        end
       end
     end
 
@@ -118,6 +123,7 @@ class BooksController < ApplicationController
     if book.ratings.exists?(user_id: @current_user.id)
       book.ratings.destroy(book.ratings.where(:user_id => @current_user.id))
     end
+
     rating = Rating.create
     rating.user_id = @current_user.id
     rating.book_id = params[:id]
