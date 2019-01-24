@@ -167,6 +167,10 @@ h1, h2, h3, h4 {
    color: #7C89A3;
 }
 
+.rating a:hover {
+  text-decoration: none;
+}
+
 .hidden {
   display: none;
 }
