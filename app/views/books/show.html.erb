@@ -72,7 +72,7 @@
                 <span>☆</span>
               </a>
             </div>
-            <% if @book.ratings.exists?(user_id: @current_user.id) %>
+            <% if @book.ratings.exists? %>
               <h4>Average User Rating: <%= @average_rating.round(1).to_s %> stars</h4>
             <% end %>
 

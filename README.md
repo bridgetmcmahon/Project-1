@@ -26,6 +26,10 @@ https://great-reads-app.herokuapp.com/
 The database is run using PostgreSQL
 
 ### To be added
-- Book ratings
-- User relationships
+- Users' book rating is displayed if they have rated it
+- User relationships (followers and following)
 - Book recommendations (being hopeful)
+
+### Bugs
+- Can't click on 'Add to shelf' if no shelf has been selected
+- Can't add books without an author to a shelf
