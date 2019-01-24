@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all.take(20).shuffle
+    @books = Book.all.shuffle.take(30)
   end
 
   def filter_genre

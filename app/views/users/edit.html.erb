@@ -2,11 +2,15 @@
   <h1>Edit Profile</h1>
 
   <%= form_for(@user, :class => 'form-group', :html => {:multipart => true}) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => 'form-control' %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
 
-    <%= f.label :image %>
-    <%= f.cl_image_upload :image, :class => 'btn btn-info' %>
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.cl_image_upload :image, :class => 'btn btn-info form-control' %>
+    </div>
 
     <%= f.submit "Update", :class => 'btn btn-info' %>
   <% end %>
