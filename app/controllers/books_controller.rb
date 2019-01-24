@@ -112,7 +112,6 @@ class BooksController < ApplicationController
   end
 
   def add_rating
-    # raise 'hell'
     book = Book.find params[:id]
     score = params[:rating].to_i
 

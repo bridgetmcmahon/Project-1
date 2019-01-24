@@ -212,3 +212,17 @@ h1, h2, h3 {
 .synopsis {
   font-size: 80%;
 }
+
+.star-rating {
+  max-height: 20px;
+  min-height: 20px;
+  text-decoration: none;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.star-rating:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+  text-decoration: none;
+}
