@@ -74,18 +74,19 @@ g20 = Genre.create :name => "Dystopian Fiction"
 g21 = Genre.create :name => "Philosophy"
 
 Shelf.destroy_all
-# s1 = Shelf.create :name => "Read"
-# s2 = Shelf.create :name => "Currently Reading"
-# s3 = Shelf.create :name => "Want to Read"
-#
-# s4 = Shelf.create :name => "Read"
-# s5 = Shelf.create :name => "Currently Reading"
-# s6 = Shelf.create :name => "Want to Read"
+s1 = Shelf.create :name => "Read"
+s2 = Shelf.create :name => "Currently Reading"
+s3 = Shelf.create :name => "Want to Read"
+
+s4 = Shelf.create :name => "Read"
+s5 = Shelf.create :name => "Currently Reading"
+s6 = Shelf.create :name => "Want to Read"
 
 User.destroy_all
 u1 = User.create :name => "Bridget", :email => "bridget@gmail.com", :password => "chicken", :admin => true
 u2 = User.create :name => "Todd", :email => "todd@gmail.com", :password => "chicken"
 
+Rating.destroy_all
 
 ########################## ASSOCIATIONS ##########################
 
@@ -137,5 +138,5 @@ g20.books << b7 << b18
 g21.books << b8
 
 # Shelves & Users
-# u1.shelves << s1 << s2 << s3
-# u2.shelves << s4 << s5 << s6
+u1.shelves << s1 << s2 << s3
+u2.shelves << s4 << s5 << s6
