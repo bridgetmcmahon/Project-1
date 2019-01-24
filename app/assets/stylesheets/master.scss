@@ -1,73 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css?family=Lato|Staatliches');
-
-body {
-  font-family: 'Lato', sans-serif;
-  background-color: #DADDD8;
-  margin: 0;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-h1, h2, h3 {
-  font-family: 'Staatliches', cursive;
-}
-
-header {
-  background-color: #1C1C1C;
-}
-
-nav {
-  max-width: 960px;
-  margin: 0 auto;
-  line-height: 50px;
-  color: #DADDD8;
-}
-
-nav a {
-  color: #DADDD8;
-  text-decoration: none;
-  margin-right: 12px;
-}
-
-.books {
-  display: inline-block;
-  text-align: center;
-  margin: 10px 5px;
-  max-height: 200px;
-  vertical-align: top;
-}
-
-.books img {
-  max-height: 150px;
-  width: auto;
-}
-
-.books p {
-  max-width: 200px;
-}
-
-.feature {
-  max-height: 400px;
-}
-
-.shelf img {
-  max-height: 150px;
-}
-
-.controls {
-  margin-top: 15px;
-}
-
-.controls a {
-  background-color: #1C1C1C;
-  color: #DADDD8;
-  padding: 3px;
-  border-radius: 3px;
-  text-decoration: none;
-} */
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Staatliches');
 
@@ -77,11 +7,11 @@ body {
 }
 
 .navbar-light {
-  background-color: #EE7674;
+  background-color: #212227;
 }
 
 .header {
-  background-color: #25274D;
+  background-color: #AAB9CF;
   margin-bottom: 20px;
 
   h1 {
@@ -91,11 +21,19 @@ body {
   }
 }
 
+.filter a {
+  color: #7C89A3;
+}
+
+a {
+  color: #7C89A3;
+}
+
 .container {
   margin: 0 auto;
 
   a {
-    color: #05A8AA;
+    // color: #05A8AA;
   }
 
   h3 {
@@ -111,7 +49,7 @@ h1, h2, h3 {
 
 .divider {
   padding: 0 5px;
-  color: #EE7674;
+  color: #AAB9CF;
 }
 
 .card {
@@ -142,7 +80,7 @@ h1, h2, h3 {
   a {
     display: block;
     font-size: 0.9em;
-    color: #05A8AA;
+    color: #7C89A3;
     text-decoration: none;
   }
 
@@ -176,7 +114,7 @@ h1, h2, h3 {
 
 .shelf-name a {
   font-size: 0.9em;
-  color: #05A8AA;
+  color: #7C89A3;
   text-decoration: none;
   font-family: 'Staatliches', cursive;
 }
@@ -201,8 +139,10 @@ h1, h2, h3 {
 .jumbotron {
   background-image: url(bookcase-bw.jpg);
   background-size: cover;
-  height: 100vh;
   color: #FFFFFF;
+  border-radius: 0px;
+  height: 100vh;
+  margin-bottom: 0;
 
   p {
     font-size: 150%;
@@ -213,16 +153,33 @@ h1, h2, h3 {
   font-size: 80%;
 }
 
-.star-rating {
-  max-height: 20px;
-  min-height: 20px;
-  text-decoration: none;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
 }
 
-.star-rating:hover {
-  -webkit-filter: grayscale(0%);
-  filter: grayscale(0%);
-  text-decoration: none;
+.rating > a {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.rating > a:hover:before,
+.rating > a:hover ~ a:before {
+   content: "\2605";
+   position: absolute;
+   text-decoration: none;
+   color: #7C89A3;
+}
+
+.hidden {
+  display: none;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.btn-info {
+  background-color: #7C89A3;
 }

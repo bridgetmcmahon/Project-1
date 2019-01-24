@@ -5,14 +5,16 @@
 </div>
 
 <div class="container">
-  <h3>Filter books by genre:</h3>
-  <%= link_to "Fiction", view_genre_path(:genres => 'Fiction') %> <span class="divider">|</span>
-  <%= link_to "Non-Fiction", view_genre_path(:genres => 'Non-fiction') %> <span class="divider">|</span>
-  <%= link_to "Action & Adventure", view_genre_path(:genres => 'Action and Adventure') %> <span class="divider">|</span>
-  <%= link_to "Thriller", view_genre_path(:genres => 'Thriller') %> <span class="divider">|</span>
-  <%= link_to "Science Fiction", view_genre_path(:genres => 'Science Fiction') %> <span class="divider">|</span>
-  <%= link_to "Fantasy", view_genre_path(:genres => 'Fantasy') %> <span class="divider">|</span>
-  <%= link_to "Young Adult", view_genre_path(:genres => 'Young Adult') %>
+  <div class="filter">
+    <h3>Filter books by genre:</h3>
+    <%= link_to "Fiction", view_genre_path(:genres => 'Fiction') %> <span class="divider">|</span>
+    <%= link_to "Non-Fiction", view_genre_path(:genres => 'Non-fiction') %> <span class="divider">|</span>
+    <%= link_to "Action & Adventure", view_genre_path(:genres => 'Action and Adventure') %> <span class="divider">|</span>
+    <%= link_to "Thriller", view_genre_path(:genres => 'Thriller') %> <span class="divider">|</span>
+    <%= link_to "Science Fiction", view_genre_path(:genres => 'Science Fiction') %> <span class="divider">|</span>
+    <%= link_to "Fantasy", view_genre_path(:genres => 'Fantasy') %> <span class="divider">|</span>
+    <%= link_to "Young Adult", view_genre_path(:genres => 'Young Adult') %>
+  </div>
 
   <hr>
   <!-- display all books -->

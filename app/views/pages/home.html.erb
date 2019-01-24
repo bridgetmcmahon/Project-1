@@ -1,7 +1,10 @@
-<div class="jumbotron">
+<div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-3">Welcome to Greatreads</h1>
-    <p>Greatreads is a website where you can keep track of the books you've read, the books you are currently reading and the books you want to read.</p>
-    <p><%= link_to "Search for a book", books_search_path, :class => 'btn btn-light btn-lg' %></p>
+    <p class="lead">Greatreads is a website where you can keep track of the books you've read, the books you are currently reading and the books you want to read.</p>
+      <%= form_tag books_search_results_path, :method => 'get', :class => 'form-inline form-group' %>
+      <%= text_field_tag :title, nil, :class => 'form-control', :placeholder => 'Search for a book' %>
+      <%= text_field_tag :author, nil, :class => 'hidden' %>
+      <%= submit_tag "Search", :class => 'btn btn-light' %>
   </div>
 </div>

@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get '/books/search_results' => 'books#search_result'
   post '/books/addbyisbn/:isbn' => 'books#add_by_isbn', :as => :add_by_isbn
   get '/books/genres/:genres' => 'books#filter_genre', :as => :view_genre
-  resources :books
   post '/books/:id/rating' => 'books#add_rating', :as => :add_rating
+  resources :books
+
 
   # AUTHORS #
   resources :authors, :only => [:index, :show]

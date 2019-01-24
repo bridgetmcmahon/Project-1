@@ -56,26 +56,27 @@
   <!-- link to rate book -->
       <div class="col-md-9">
         <h3>Rate This Book:</h3>
-        <%= form_tag add_rating_path(@book) do %>
-          <a href="/books/:id/rating?rating=1" data-method="post">
-            <%= image_tag "star.png", :alt => "Yellow star rating", :class => 'star-rating' %>
-          </a>
-          <a href="/books/:id/rating?rating=2" data-method="post">
-            <%= image_tag "star.png", :alt => "Yellow star rating", :class => 'star-rating' %>
-          </a>
-          <a href="/books/:id/rating?rating=3" data-method="post">
-            <%= image_tag "star.png", :alt => "Yellow star rating", :class => 'star-rating' %>
-          </a>
-          <a href="/books/:id/rating?rating=4" data-method="post">
-            <%= image_tag "star.png", :alt => "Yellow star rating", :class => 'star-rating' %>
-          </a>
-          <a href="/books/:id/rating?rating=5" data-method="post">
-            <%= image_tag "star.png", :alt => "Yellow star rating", :class => 'star-rating' %>
-          </a>
-          <%# select_tag 'rating',
-              options_for_select(1..5) %>
-          <%# submit_tag "Save Rating", :class => 'btn btn-info' %>
-        <% end %>
+            <%= form_tag add_rating_path(@book) do %>
+            <div class="rating">
+
+              <a href="/books/<%= @book.id %>/rating?rating=5" data-method="post">
+                <span>☆</span>
+              </a>
+              <a href="/books/<%= @book.id %>/rating?rating=4" data-method="post">
+                <span>☆</span>
+              </a>
+              <a href="/books/<%= @book.id %>/rating?rating=3" data-method="post">
+                <span>☆</span>
+              </a>
+              <a href="/books/<%= @book.id %>/rating?rating=2" data-method="post">
+                <span>☆</span>
+              </a>
+              <a href="/books/<%= @book.id %>/rating?rating=1" data-method="post">
+                <span>☆</span>
+              </a>
+            </div>
+
+            <% end %>
       </div>
     </div>
   <% end %>
