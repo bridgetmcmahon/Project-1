@@ -46,6 +46,9 @@ class UsersController < ApplicationController
     if @user.id != @current_user.id
       redirect_to user_path(@current_user)
     end
+    @total_books = @user.books.count
+    @books_read = @user.shelves.find_by(:name => "Read").books.count
+    @rated = @user.ratings.count
   end
 
   private

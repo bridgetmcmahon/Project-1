@@ -4,17 +4,24 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container app">
   <% @current_user.shelves.each do |shelf| %>
     <div class="shelf">
       <h3 class="shelf-name"><%= link_to shelf.name, shelf_path(shelf) %></h3>
         <% if shelf.books.empty? %>
           <p>You haven't added any books to this shelf yet</p>
         <% else %>
-          <% shelf.books.each do |book| %>
-            <%= link_to image_tag(book.cover, :class => 'img-thumbnail'), book_path(book) %>
-          <% end %>
+        <div class="hide-scroll">
+          <ul class="hs">
+            <% shelf.books.each do |book| %>
+            <li class="hs">
+              <%= link_to image_tag(book.cover), book_path(book) %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
         <% end %>
       <hr>
     </div>
   <% end %>
+</div>
