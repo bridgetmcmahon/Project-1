@@ -198,45 +198,45 @@ h1, h2, h3, h4 {
 
 // HORIZONTAL SCROLL METHOD - source: https://uxdesign.cc/creating-horizontal-scrolling-containers-the-right-way-css-grid-c256f64fc585
 
-:root {
-  --gutter: 20px;
-}
-
-.app {
-  padding: var(--gutter) 0;
-  display: grid;
-  grid-gap: var(--gutter) 0;
-  grid-template-columns: var(--gutter) 1fr var(--gutter);
-  align-content: start;
-}
-
-.app > * {
-  grid-column: 2 / -2;
-}
-
-.app > .full {
-  grid-column: 1 / -1;
-}
-
-.hs {
-  display: grid;
-  grid-gap: calc(var(--gutter) / 5);
-  grid-template-columns: 1px repeat(20, calc(50% - var(--gutter) * 20)) 10px;
-  grid-template-rows: minmax(150px, 1fr);
-
-  overflow-x: scroll;
-  scroll-snap-type: x proximity;
-  padding-bottom: calc(.75 * var(--gutter));
-  margin-bottom: calc(-.5 * var(--gutter));
-}
-
-.hs:before,
-.hs:after {
-  content: '';
-}
-
-/* Hide scrollbar */
-.hide-scroll {
-  overflow-y: hidden;
-  margin-bottom: calc(-.1 * var(--gutter));
-}
+// :root {
+//   --gutter: 20px;
+// }
+//
+// .app {
+//   padding: var(--gutter) 0;
+//   display: grid;
+//   grid-gap: var(--gutter) 0;
+//   grid-template-columns: var(--gutter) 1fr var(--gutter);
+//   align-content: start;
+// }
+//
+// .app > * {
+//   grid-column: 2 / -2;
+// }
+//
+// .app > .full {
+//   grid-column: 1 / -1;
+// }
+//
+// .hs {
+//   display: grid;
+//   grid-gap: calc(var(--gutter) / 5);
+//   grid-template-columns: 1px repeat(20, calc(50% - var(--gutter) * 20)) 10px;
+//   grid-template-rows: minmax(150px, 1fr);
+//
+//   overflow-x: scroll;
+//   scroll-snap-type: x proximity;
+//   padding-bottom: calc(.75 * var(--gutter));
+//   margin-bottom: calc(-.5 * var(--gutter));
+// }
+//
+// .hs:before,
+// .hs:after {
+//   content: '';
+// }
+//
+// /* Hide scrollbar */
+// .hide-scroll {
+//   overflow-y: hidden;
+//   margin-bottom: calc(-.1 * var(--gutter));
+// }
