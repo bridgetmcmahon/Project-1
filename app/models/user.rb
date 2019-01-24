@@ -18,4 +18,5 @@ class User < ApplicationRecord
 
   # Associations
   has_many :shelves
+  has_many :ratings
 end

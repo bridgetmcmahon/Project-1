@@ -17,6 +17,9 @@
           <h4><%= book.title %></h4>
           <p><%= book.authors.first.name %></p>
           <!-- <p><%= book.synopsis.truncate(300) unless book.synopsis.nil? %></p> -->
+          <% if book.ratings.exists?(user_id: @current_user.id) %>
+            <p>Your rating: <%= book.ratings.find_by(:user_id => @current_user.id).score %> stars</p>
+          <% end %>
           <%= button_to "Remove from Shelf",
           book_to_shelf_path(book.id, :shelf_id => @shelf.id), :class => 'btn btn-warning',
           :method => 'delete' %>

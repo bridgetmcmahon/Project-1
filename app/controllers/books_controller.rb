@@ -31,6 +31,13 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find params[:id]
+    if @book.ratings.present?
+      ratings_array = []
+      @book.ratings.each do |rating|
+        ratings_array << rating.score.to_f
+      end
+      @average_rating = (ratings_array.sum / ratings_array.count)
+    end
   end
 
   def edit
@@ -104,6 +111,22 @@ class BooksController < ApplicationController
     redirect_to book_path(new_book)
   end
 
+  def add_rating
+    # raise 'hell'
+    book = Book.find params[:id]
+    score = params[:rating].to_i
+
+    if book.ratings.exists?(user_id: @current_user.id)
+      book.ratings.destroy(book.ratings.where(:user_id => @current_user.id))
+    end
+    rating = Rating.create
+    rating.user_id = @current_user.id
+    rating.book_id = params[:id]
+    rating.score = score
+    rating.save
+    redirect_to book
+  end
+
   def destroy
     check_for_admin
     book = Book.find params[:id]
@@ -113,6 +136,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :cover, :synopsis, :genre)
+    params.require(:book).permit(:title, :cover, :synopsis, :genre, :rating)
   end
 end

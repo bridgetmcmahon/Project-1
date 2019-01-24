@@ -25,27 +25,44 @@
           <% end %>
         </ul>
       <% unless @book.synopsis.nil? %>
-      <h3>Synopsis:</h3>
-      <p class="synopsis"><%= @book.synopsis %></p>
+        <h3>Synopsis:</h3>
+        <p class="synopsis"><%= @book.synopsis %></p>
+      <% end %>
+      <% if @book.ratings.exists?(user_id: @current_user.id) %>
+        <h3>Average User Rating: <%= @average_rating.to_s %></h3>
       <% end %>
     </div>
   </div>
 
+  <hr>
+
   <!-- link to add to shelf -->
-
   <% if @current_user.present? %>
-    <h3>Add to Shelf:</h3>
-    <%= form_tag book_to_shelf_path(@book) do %>
+    <div class="row">
+      <div class="col-md-3">
+        <h3>Add to Shelf:</h3>
+        <%= form_tag book_to_shelf_path(@book) do %>
+          <% @current_user.shelves.each do |shelf| %>
+            <%= radio_button_tag :shelf_id, shelf.id, shelf.book_ids.include?(@book.id) %>
+            <%= label_tag :shelf_id, shelf.name %>
+            <br />
+          <% end %>
+          <%= submit_tag "Add Book to Shelf", :class => 'btn btn-info' %>
+        <% end %>
+      </div>
 
-      <% @current_user.shelves.each do |shelf| %>
-        <%= radio_button_tag :shelf_id, shelf.id, shelf.book_ids.include?(@book.id) %>
-        <%= label_tag :shelf_id, shelf.name %>
-        <br />
-      <% end %>
-
-      <%= submit_tag "Add Book to Shelf", :class => 'btn btn-info' %>
-    <% end %>
+  <!-- link to rate book -->
+      <div class="col-md-9">
+        <h3>Rate This Book:</h3>
+        <%= form_tag add_rating_path(@book) do %>
+          <%= select_tag 'rating',
+              options_for_select(1..5) %>
+          <%= submit_tag "Save Rating", :class => 'btn btn-info' %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
+
 
   <% if @current_user.present? && @current_user.admin? %>
     <%= button_to "Delete Book", @book, :method => 'delete' %>
