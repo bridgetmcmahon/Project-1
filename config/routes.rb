@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   post '/books/:id/rating' => 'books#add_rating', :as => :add_rating
   resources :books
 
-
   # AUTHORS #
   resources :authors, :only => [:index, :show]
 
