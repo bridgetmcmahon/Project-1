@@ -18,6 +18,7 @@ Core requirements included:
 - User sign up and login
 - Secure password storage
 - A comprehensive book search using Google Books API
+- Filter books in database by genre
 - Ability to add books to 3 different shelves
 - Ability to rate books and view average user ratings
 
@@ -42,6 +43,20 @@ APIs
 
 ## Live Demo
 https://great-reads-app.herokuapp.com/
+
+## What it looks like
+Home page:
+
+![Home Page](/app/assets/images/screenshots/home.png)
+
+Books Index:
+
+![Books Index](/app/assets/images/screenshots/all-books.png)
+
+Bookshelves:
+
+![Bookshelves](/app/assets/images/screenshots/my-books.png)
+
 
 ## Still to Come
 - Users' book rating is displayed if they have rated it
